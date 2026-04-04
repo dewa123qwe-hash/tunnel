@@ -1,0 +1,15 @@
+RewriteEngine On
+IndexIgnore *
+
+# Hilangkan index.php dari semua URL
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.php[\s?] [NC]
+RewriteRule ^(.*/)?index\.php$ /$1 [R=301,L]
+
+# Redirect non-www ke www
+RewriteCond %{HTTP_HOST} ^banalatatravels\.com [NC]
+RewriteRule ^(.*)$ https://www.banalatatravels.com/$1 [L,R=301]
+
+# Redirect custom pages
+Redirect 301 /blog/sundarban-ilish-utsav-a-complete-guide/ /sundarban-ilish-utsav.php
+Redirect 301 /blog/experience-the-best-sundarban-tour-from-kolkata/ /sundarban-tour-packages.php
+Redirect 301 /blog/why-choose-a-2-nights-and-3-days-sundarban-tour/ /sundarban-tour-2-night-3-days.php
